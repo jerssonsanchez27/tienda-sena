@@ -1,28 +1,50 @@
 package com.sena.tienda.entity;
 
-import com.sena.tienda.entity.Cliente;
 import jakarta.persistence.*;
-import java.math.BigDecimal;
-import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
-@Table(name = "ventas")
 public class Venta {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idVenta;
+    private Long id;
 
-    private LocalDateTime fechaVenta;
-    private BigDecimal totalVenta;
+    private double total;
 
     @ManyToOne
-    @JoinColumn(name = "documento_cliente")
     private Cliente cliente;
 
-    @OneToMany(mappedBy = "venta", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "venta")
     private List<DetalleVenta> detalles;
 
-    // getters y setters
+    // GETTERS Y SETTERS
+
+    public Long getId() {
+        return id;
+    }
+
+    public double getTotal() {
+        return total;
+    }
+
+    public void setTotal(double total) {
+        this.total = total;
+    }
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+
+    public List<DetalleVenta> getDetalles() {
+        return detalles;
+    }
+
+    public void setDetalles(List<DetalleVenta> detalles) {
+        this.detalles = detalles;
+    }
 }

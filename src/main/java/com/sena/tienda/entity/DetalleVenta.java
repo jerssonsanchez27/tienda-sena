@@ -1,27 +1,58 @@
 package com.sena.tienda.entity;
 
 import jakarta.persistence.*;
-import java.math.BigDecimal;
 
 @Entity
-@Table(name = "detalles_ventas")
 public class DetalleVenta {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idDetalle;
+    private Long id;
 
-    private Integer cantidad;
-    private BigDecimal precioUnitarioVenta;
-    private BigDecimal subtotal;
+    private int cantidad;
+    private double subtotal;
 
     @ManyToOne
-    @JoinColumn(name = "id_venta")
     private Venta venta;
 
     @ManyToOne
-    @JoinColumn(name = "id_bicicleta")
     private Bicicleta bicicleta;
 
-    // getters y setters
+    // GETTERS Y SETTERS
+
+    public Long getId() {
+        return id;
+    }
+
+    public int getCantidad() {
+        return cantidad;
+    }
+
+    public void setCantidad(int cantidad) {
+        this.cantidad = cantidad;
+    }
+
+    public double getSubtotal() {
+        return subtotal;
+    }
+
+    public void setSubtotal(double subtotal) {
+        this.subtotal = subtotal;
+    }
+
+    public Venta getVenta() {
+        return venta;
+    }
+
+    public void setVenta(Venta venta) {
+        this.venta = venta;
+    }
+
+    public Bicicleta getBicicleta() {
+        return bicicleta;
+    }
+
+    public void setBicicleta(Bicicleta bicicleta) {
+        this.bicicleta = bicicleta;
+    }
 }
