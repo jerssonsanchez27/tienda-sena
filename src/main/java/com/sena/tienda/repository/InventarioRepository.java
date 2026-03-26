@@ -9,4 +9,6 @@ import java.util.Optional;
 public interface InventarioRepository extends JpaRepository<Inventario, Long> {
 
     Optional<Inventario> findByBicicleta(Bicicleta bicicleta);
+
 }
+

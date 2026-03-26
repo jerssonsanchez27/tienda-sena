@@ -25,4 +25,9 @@ public class ClienteController {
     public List<Cliente> listar() {
         return clienteService.listar();
     }
+
+    @DeleteMapping("/{documento}")
+    public void eliminar(@PathVariable String documento) {
+        clienteService.eliminar(documento);
+    }
 }

@@ -2,6 +2,7 @@ package com.sena.tienda.entity;
 
 import jakarta.persistence.*;
 import java.util.List;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 public class Venta {
@@ -16,6 +17,7 @@ public class Venta {
     private Cliente cliente;
 
     @OneToMany(mappedBy = "venta")
+    @JsonManagedReference
     private List<DetalleVenta> detalles;
 
     // GETTERS Y SETTERS

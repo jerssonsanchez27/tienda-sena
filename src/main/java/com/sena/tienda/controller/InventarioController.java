@@ -3,6 +3,8 @@ package com.sena.tienda.controller;
 import com.sena.tienda.entity.Inventario;
 import com.sena.tienda.service.InventarioService;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -24,5 +26,10 @@ public class InventarioController {
     @GetMapping
     public List<Inventario> listar() {
         return inventarioService.listar();
+    }
+
+    @PutMapping("/{id}/stock")
+    public Inventario agregarStock(@PathVariable Long id, @RequestParam int cantidad) {
+        return inventarioService.agregarStock(id, cantidad);
     }
 }

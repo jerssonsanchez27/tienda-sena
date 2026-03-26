@@ -25,4 +25,9 @@ public class BicicletaController {
     public List<Bicicleta> listar() {
         return bicicletaService.listar();
     }
+
+    @DeleteMapping("/{id}")
+    public void eliminar(@PathVariable Long id) {
+        bicicletaService.eliminar(id);
+    }
 }

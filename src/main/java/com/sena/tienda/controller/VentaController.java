@@ -5,6 +5,8 @@ import com.sena.tienda.entity.Venta;
 import com.sena.tienda.service.VentaService;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/ventas")
 public class VentaController {
@@ -19,6 +21,11 @@ public class VentaController {
     public String test() {
         return "VentaController funcionando";
     }
+
+    @GetMapping                                          // ← NUEVO
+    public List<Venta> listar() {                        // ← NUEVO
+        return ventaService.listarVentas();              // ← NUEVO
+    }                                                    // ← NUEVO
 
     @PostMapping
     public Venta registrarVenta(@RequestBody VentaRequest request) {

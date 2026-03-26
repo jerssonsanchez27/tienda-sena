@@ -75,4 +75,7 @@ public class VentaService {
 
         return ventaGuardada;
     }
+    public List<Venta> listarVentas() {
+        return ventaRepository.findAll();
+    }
 }   

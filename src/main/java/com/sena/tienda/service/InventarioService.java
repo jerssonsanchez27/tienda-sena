@@ -39,4 +39,10 @@ public class InventarioService {
         inventario.setStock(inventario.getStock() - cantidad);
         inventarioRepository.save(inventario);
     }
+    public Inventario agregarStock(Long id, int cantidad) {
+        Inventario inventario = inventarioRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Inventario no encontrado"));
+        inventario.setStock(inventario.getStock() + cantidad);
+        return inventarioRepository.save(inventario);
+    }
 }

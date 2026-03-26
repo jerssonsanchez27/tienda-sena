@@ -1,7 +1,7 @@
 package com.sena.tienda.entity;
 
 import jakarta.persistence.*;
-
+import com.fasterxml.jackson.annotation.JsonBackReference;
 @Entity
 public class DetalleVenta {
 
@@ -13,6 +13,7 @@ public class DetalleVenta {
     private double subtotal;
 
     @ManyToOne
+    @JsonBackReference
     private Venta venta;
 
     @ManyToOne
